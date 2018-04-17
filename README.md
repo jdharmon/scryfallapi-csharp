@@ -12,17 +12,17 @@ cd MyProject
 git init
 ```
 
-2. Add this repository as a submodule.
-
-```sh
-git submodule add https://github.com/jdharmon/scryfallapi-csharp.git Scryfall
-```
-
-3. Create the project, and add dependencies
+2. Create the project, and add dependencies
 
 ```sh
 dotnet new console
 dotnet add package Microsoft.Rest.ClientRuntime --version 2.3.11
+```
+
+3. Add this repository as a submodule.
+
+```sh
+git submodule add https://github.com/jdharmon/scryfallapi-csharp.git Scryfall
 ```
 
 4. Open Program.cs, and add
