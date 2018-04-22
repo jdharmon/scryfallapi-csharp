@@ -7,6 +7,8 @@
 namespace Scryfall.API.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class CardFace
@@ -22,11 +24,9 @@ namespace Scryfall.API.Models
         /// <summary>
         /// Initializes a new instance of the CardFace class.
         /// </summary>
-        /// <param name="colors">Possible values include: 'W', 'U', 'B', 'R',
-        /// 'G'</param>
         /// <param name="colorIndicator">Possible values include: 'W', 'U',
         /// 'B', 'R', 'G'</param>
-        public CardFace(string name = default(string), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), Colors? colors = default(Colors?), Colors? colorIndicator = default(Colors?), string power = default(string), string toughness = default(string), string loyalty = default(string), string flavorText = default(string), System.Guid? illustrationId = default(System.Guid?), ImageUri imageUris = default(ImageUri))
+        public CardFace(string name = default(string), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), IList<Colors?> colors = default(IList<Colors?>), Colors? colorIndicator = default(Colors?), string power = default(string), string toughness = default(string), string loyalty = default(string), string flavorText = default(string), System.Guid? illustrationId = default(System.Guid?), ImageUri imageUris = default(ImageUri))
         {
             Name = name;
             TypeLine = typeLine;
@@ -69,10 +69,9 @@ namespace Scryfall.API.Models
         public string ManaCost { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'W', 'U', 'B', 'R', 'G'
         /// </summary>
         [JsonProperty(PropertyName = "colors")]
-        public Colors? Colors { get; set; }
+        public IList<Colors?> Colors { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'W', 'U', 'B', 'R', 'G'
