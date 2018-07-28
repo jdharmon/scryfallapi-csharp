@@ -23,29 +23,29 @@ namespace Scryfall.API.Models
         /// Initializes a new instance of the Legality class.
         /// </summary>
         /// <param name="standard">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="future">Possible values include: 'legal',
-        /// 'not_legal'</param>
+        /// 'not_legal', 'restricted', 'banned'</param>
+        /// <param name="future">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
         /// <param name="frontier">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="modern">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="legacy">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="pauper">Possible values include: 'legal',
-        /// 'not_legal'</param>
+        /// 'not_legal', 'restricted', 'banned'</param>
+        /// <param name="modern">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
+        /// <param name="legacy">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
+        /// <param name="pauper">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
         /// <param name="vintage">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="penny">Possible values include: 'legal',
-        /// 'not_legal'</param>
+        /// 'not_legal', 'restricted', 'banned'</param>
+        /// <param name="penny">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
         /// <param name="commander">Possible values include: 'legal',
-        /// 'not_legal'</param>
+        /// 'not_legal', 'restricted', 'banned'</param>
         /// <param name="onevOne">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="duel">Possible values include: 'legal',
-        /// 'not_legal'</param>
-        /// <param name="brawl">Possible values include: 'legal',
-        /// 'not_legal'</param>
+        /// 'not_legal', 'restricted', 'banned'</param>
+        /// <param name="duel">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
+        /// <param name="brawl">Possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'</param>
         public Legality(LegalStatus? standard = default(LegalStatus?), LegalStatus? future = default(LegalStatus?), LegalStatus? frontier = default(LegalStatus?), LegalStatus? modern = default(LegalStatus?), LegalStatus? legacy = default(LegalStatus?), LegalStatus? pauper = default(LegalStatus?), LegalStatus? vintage = default(LegalStatus?), LegalStatus? penny = default(LegalStatus?), LegalStatus? commander = default(LegalStatus?), LegalStatus? onevOne = default(LegalStatus?), LegalStatus? duel = default(LegalStatus?), LegalStatus? brawl = default(LegalStatus?))
         {
             Standard = standard;
@@ -69,73 +69,85 @@ namespace Scryfall.API.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "standard")]
         public LegalStatus? Standard { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "future")]
         public LegalStatus? Future { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "frontier")]
         public LegalStatus? Frontier { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "modern")]
         public LegalStatus? Modern { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "legacy")]
         public LegalStatus? Legacy { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "pauper")]
         public LegalStatus? Pauper { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "vintage")]
         public LegalStatus? Vintage { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "penny")]
         public LegalStatus? Penny { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "commander")]
         public LegalStatus? Commander { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "1v1")]
         public LegalStatus? OnevOne { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "duel")]
         public LegalStatus? Duel { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'legal', 'not_legal'
+        /// Gets or sets possible values include: 'legal', 'not_legal',
+        /// 'restricted', 'banned'
         /// </summary>
         [JsonProperty(PropertyName = "brawl")]
         public LegalStatus? Brawl { get; set; }

@@ -20,7 +20,11 @@ namespace Scryfall.API.Models
         [EnumMember(Value = "legal")]
         Legal,
         [EnumMember(Value = "not_legal")]
-        NotLegal
+        NotLegal,
+        [EnumMember(Value = "restricted")]
+        Restricted,
+        [EnumMember(Value = "banned")]
+        Banned
     }
     internal static class LegalStatusEnumExtension
     {
@@ -37,6 +41,10 @@ namespace Scryfall.API.Models
                     return "legal";
                 case LegalStatus.NotLegal:
                     return "not_legal";
+                case LegalStatus.Restricted:
+                    return "restricted";
+                case LegalStatus.Banned:
+                    return "banned";
             }
             return null;
         }
@@ -49,6 +57,10 @@ namespace Scryfall.API.Models
                     return LegalStatus.Legal;
                 case "not_legal":
                     return LegalStatus.NotLegal;
+                case "restricted":
+                    return LegalStatus.Restricted;
+                case "banned":
+                    return LegalStatus.Banned;
             }
             return null;
         }

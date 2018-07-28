@@ -25,19 +25,20 @@ namespace Scryfall.API.Models
         /// Initializes a new instance of the Card class.
         /// </summary>
         /// <param name="layout">Possible values include: 'normal', 'split',
-        /// 'transform', 'meld', 'leveler', 'saga', 'planar', 'scheme',
+        /// 'flip', 'transform', 'meld', 'leveler', 'saga', 'planar', 'scheme',
         /// 'vanguard', 'token', 'double_faced_token', 'emblem', 'augment',
         /// 'host'</param>
         /// <param name="rarity">Possible values include: 'common', 'uncommon',
         /// 'rare', 'mythic'</param>
         /// <param name="borderColor">Possible values include: 'black',
         /// 'borderless', 'gold', 'silver', 'white'</param>
-        public Card(System.Guid? id = default(System.Guid?), System.Guid? oracleId = default(System.Guid?), IList<int?> multiverseIds = default(IList<int?>), int? mtgoId = default(int?), int? mtgoFoilId = default(int?), string uri = default(string), string scryfallUri = default(string), string printsSearchUri = default(string), string rulingsUri = default(string), string name = default(string), Layouts? layout = default(Layouts?), double? cmc = default(double?), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), string power = default(string), string toughness = default(string), string loyalty = default(string), string lifeModifier = default(string), string handModifier = default(string), IList<Colors?> colors = default(IList<Colors?>), IList<Colors?> colorIndicator = default(IList<Colors?>), IList<Colors?> colorIdentity = default(IList<Colors?>), RelatedCards allParts = default(RelatedCards), IList<CardFace> cardFaces = default(IList<CardFace>), Legality legalities = default(Legality), bool? reserved = default(bool?), int? edhrecRank = default(int?), string set = default(string), string setName = default(string), string collectorNumber = default(string), string setSearchUri = default(string), string scryfallSetUri = default(string), ImageUri imageUris = default(ImageUri), bool? highresImage = default(bool?), bool? reprint = default(bool?), bool? digital = default(bool?), Rarity? rarity = default(Rarity?), string flavorText = default(string), string artist = default(string), System.Guid? illustrationId = default(System.Guid?), string frame = default(string), bool? fullArt = default(bool?), string watermark = default(string), BorderColors? borderColor = default(BorderColors?), int? storySpotlightNumber = default(int?), string storySpotlightUri = default(string), bool? timeshifted = default(bool?), bool? colorshifted = default(bool?), bool? futureshifted = default(bool?), IDictionary<string, string> purchaseUris = default(IDictionary<string, string>), IDictionary<string, string> relatedUris = default(IDictionary<string, string>))
+        public Card(System.Guid? id = default(System.Guid?), System.Guid? oracleId = default(System.Guid?), IList<int?> multiverseIds = default(IList<int?>), int? mtgoId = default(int?), int? arenaId = default(int?), int? mtgoFoilId = default(int?), string uri = default(string), string scryfallUri = default(string), string printsSearchUri = default(string), string rulingsUri = default(string), string name = default(string), Layouts? layout = default(Layouts?), double? cmc = default(double?), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), string power = default(string), string toughness = default(string), string loyalty = default(string), string lifeModifier = default(string), string handModifier = default(string), IList<Colors?> colors = default(IList<Colors?>), IList<Colors?> colorIndicator = default(IList<Colors?>), IList<Colors?> colorIdentity = default(IList<Colors?>), IList<RelatedCards> allParts = default(IList<RelatedCards>), IList<CardFace> cardFaces = default(IList<CardFace>), Legality legalities = default(Legality), bool? reserved = default(bool?), int? edhrecRank = default(int?), string set = default(string), string setName = default(string), string collectorNumber = default(string), string setSearchUri = default(string), string scryfallSetUri = default(string), ImageUri imageUris = default(ImageUri), bool? highresImage = default(bool?), bool? reprint = default(bool?), bool? digital = default(bool?), Rarity? rarity = default(Rarity?), string flavorText = default(string), string artist = default(string), System.Guid? illustrationId = default(System.Guid?), string frame = default(string), bool? fullArt = default(bool?), string watermark = default(string), BorderColors? borderColor = default(BorderColors?), int? storySpotlightNumber = default(int?), string storySpotlightUri = default(string), bool? timeshifted = default(bool?), bool? colorshifted = default(bool?), bool? futureshifted = default(bool?), IDictionary<string, string> purchaseUris = default(IDictionary<string, string>), IDictionary<string, string> relatedUris = default(IDictionary<string, string>))
         {
             Id = id;
             OracleId = oracleId;
             MultiverseIds = multiverseIds;
             MtgoId = mtgoId;
+            ArenaId = arenaId;
             MtgoFoilId = mtgoFoilId;
             Uri = uri;
             ScryfallUri = scryfallUri;
@@ -116,6 +117,11 @@ namespace Scryfall.API.Models
 
         /// <summary>
         /// </summary>
+        [JsonProperty(PropertyName = "arena_id")]
+        public int? ArenaId { get; set; }
+
+        /// <summary>
+        /// </summary>
         [JsonProperty(PropertyName = "mtgo_foil_id")]
         public int? MtgoFoilId { get; set; }
 
@@ -145,7 +151,7 @@ namespace Scryfall.API.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'normal', 'split',
+        /// Gets or sets possible values include: 'normal', 'split', 'flip',
         /// 'transform', 'meld', 'leveler', 'saga', 'planar', 'scheme',
         /// 'vanguard', 'token', 'double_faced_token', 'emblem', 'augment',
         /// 'host'
@@ -216,7 +222,7 @@ namespace Scryfall.API.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "all_parts")]
-        public RelatedCards AllParts { get; set; }
+        public IList<RelatedCards> AllParts { get; set; }
 
         /// <summary>
         /// </summary>

@@ -21,6 +21,8 @@ namespace Scryfall.API.Models
         Normal,
         [EnumMember(Value = "split")]
         Split,
+        [EnumMember(Value = "flip")]
+        Flip,
         [EnumMember(Value = "transform")]
         Transform,
         [EnumMember(Value = "meld")]
@@ -61,6 +63,8 @@ namespace Scryfall.API.Models
                     return "normal";
                 case Layouts.Split:
                     return "split";
+                case Layouts.Flip:
+                    return "flip";
                 case Layouts.Transform:
                     return "transform";
                 case Layouts.Meld:
@@ -97,6 +101,8 @@ namespace Scryfall.API.Models
                     return Layouts.Normal;
                 case "split":
                     return Layouts.Split;
+                case "flip":
+                    return Layouts.Flip;
                 case "transform":
                     return Layouts.Transform;
                 case "meld":
