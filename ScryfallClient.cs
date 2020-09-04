@@ -60,6 +60,19 @@ namespace Scryfall.API
         /// <summary>
         /// Initializes a new instance of the ScryfallClient class.
         /// </summary>
+        /// <param name='httpClient'>
+        /// HttpClient to be used
+        /// </param>
+        /// <param name='disposeHttpClient'>
+        /// True: will dispose the provided httpClient on calling ScryfallClient.Dispose(). False: will not dispose provided httpClient</param>
+        public ScryfallClient(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        {
+            Initialize();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the ScryfallClient class.
+        /// </summary>
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>

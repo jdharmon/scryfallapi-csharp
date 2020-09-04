@@ -18,32 +18,6 @@ namespace Scryfall.API
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='page'>
-            /// </param>
-            public static CardList GetAll(this ICards operations, int? page = default(int?))
-            {
-                return operations.GetAllAsync(page).GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='page'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<CardList> GetAllAsync(this ICards operations, int? page = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetAllWithHttpMessagesAsync(page, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
             /// <param name='q'>
             /// </param>
             /// <param name='unique'>
