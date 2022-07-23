@@ -29,19 +29,19 @@ namespace Scryfall.API.Models
         /// 'premium_deck', 'duel_deck', 'commander', 'planechase',
         /// 'conspiracy', 'archenemy', 'vanguard', 'funny', 'starter', 'box',
         /// 'promo', 'token', 'memorabilia', 'treasure_chest'</param>
-        public Set(string code = default(string), string mtgoCode = default(string), string name = default(string), SetTypes? setType = default(SetTypes?), System.DateTime? releasedAt = default(System.DateTime?), string blockCode = default(string), string block = default(string), string parentSetCode = default(string), int? cardCount = default(int?), bool? digital = default(bool?), bool? foil = default(bool?), string iconSvgUri = default(string), string searchUri = default(string))
+        public Set(string code = default(string), string name = default(string), SetTypes? setType = default(SetTypes?), System.DateTime? releasedAt = default(System.DateTime?), string blockCode = default(string), string block = default(string), int? cardCount = default(int?), bool? digital = default(bool?), bool? foil = default(bool?), string iconSvgUri = default(string), string searchUri = default(string))
         {
             Code = code;
-            MtgoCode = mtgoCode;
+  //          MtgoCode = mtgoCode;
             Name = name;
             SetType = setType;
             ReleasedAt = releasedAt;
             BlockCode = blockCode;
             Block = block;
-            ParentSetCode = parentSetCode;
+       //     ParentSetCode = parentSetCode;
             CardCount = cardCount;
             Digital = digital;
-            Foil = foil;
+//            Foil = foil;
             IconSvgUri = iconSvgUri;
             SearchUri = searchUri;
             CustomInit();
@@ -52,20 +52,46 @@ namespace Scryfall.API.Models
         /// </summary>
         partial void CustomInit();
 
+        [JsonProperty(PropertyName = "object")]
+        public string SetObject { get; set; }
+
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
+
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "mtgo_code")]
-        public string MtgoCode { get; set; }
+        [JsonProperty(PropertyName = "tcgplayer_id")]
+        public string TcgPlayerId { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "uri")]
+
+        public string Uri { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "scryfall_uri")]
+
+        public string ScryfallUri { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "search_uri")]
+        public string SearchUri { get; set; }
+
+        [JsonConverter(typeof(DateJsonConverter))]
+        [JsonProperty(PropertyName = "released_at")]
+        public System.DateTime? ReleasedAt { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'core', 'expansion',
@@ -79,9 +105,23 @@ namespace Scryfall.API.Models
 
         /// <summary>
         /// </summary>
-        [JsonConverter(typeof(DateJsonConverter))]
-        [JsonProperty(PropertyName = "released_at")]
-        public System.DateTime? ReleasedAt { get; set; }
+        [JsonProperty(PropertyName = "card_count")]
+        public int? CardCount { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "digital")]
+        public bool? Digital { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "nonfoil_only")]
+        public bool? NonFoilOnly { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "foil_only")]
+        public bool? FoilOnly { get; set; }
 
         /// <summary>
         /// </summary>
@@ -95,33 +135,8 @@ namespace Scryfall.API.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "parent_set_code")]
-        public string ParentSetCode { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "card_count")]
-        public int? CardCount { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "digital")]
-        public bool? Digital { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "foil")]
-        public bool? Foil { get; set; }
-
-        /// <summary>
-        /// </summary>
         [JsonProperty(PropertyName = "icon_svg_uri")]
         public string IconSvgUri { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "search_uri")]
-        public string SearchUri { get; set; }
 
     }
 }

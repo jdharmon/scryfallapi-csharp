@@ -56,7 +56,13 @@ namespace Scryfall.API.Models
         [EnumMember(Value = "memorabilia")]
         Memorabilia,
         [EnumMember(Value = "treasure_chest")]
-        TreasureChest
+        TreasureChest,
+        [EnumMember(Value = "alchemy")]
+        Alchemy,
+        [EnumMember(Value ="draft_innovation")]
+        DraftInnovation,
+        [EnumMember(Value ="arsenal")]
+        Arsenal
     }
     internal static class SetTypesEnumExtension
     {
@@ -67,7 +73,7 @@ namespace Scryfall.API.Models
 
         internal static string ToSerializedValue(this SetTypes value)
         {
-            switch( value )
+            switch (value)
             {
                 case SetTypes.Core:
                     return "core";
@@ -109,13 +115,19 @@ namespace Scryfall.API.Models
                     return "memorabilia";
                 case SetTypes.TreasureChest:
                     return "treasure_chest";
+                case SetTypes.Alchemy:
+                    return "alchemy";
+                case SetTypes.DraftInnovation:
+                    return "draft_innovation";
+                case SetTypes.Arsenal:
+                    return "arsenal";
             }
             return null;
         }
 
         internal static SetTypes? ParseSetTypes(this string value)
         {
-            switch( value )
+            switch (value)
             {
                 case "core":
                     return SetTypes.Core;
@@ -157,6 +169,12 @@ namespace Scryfall.API.Models
                     return SetTypes.Memorabilia;
                 case "treasure_chest":
                     return SetTypes.TreasureChest;
+                case "alchemy":
+                    return SetTypes.Alchemy;
+                case "draft_innovation":
+                    return SetTypes.DraftInnovation;
+                case "arsenal":
+                    return SetTypes.Arsenal;
             }
             return null;
         }
