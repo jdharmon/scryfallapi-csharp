@@ -6,6 +6,7 @@
 
 namespace Scryfall.API.Models
 {
+    using chatMTG.Scryfall.Models;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Scryfall.API.Models
         /// 'rare', 'mythic'</param>
         /// <param name="borderColor">Possible values include: 'black',
         /// 'borderless', 'gold', 'silver', 'white'</param>
-        public Card(System.Guid? id = default(System.Guid?), System.Guid? oracleId = default(System.Guid?), IList<int?> multiverseIds = default(IList<int?>), int? mtgoId = default(int?), int? arenaId = default(int?), int? mtgoFoilId = default(int?), string uri = default(string), string scryfallUri = default(string), string printsSearchUri = default(string), string rulingsUri = default(string), string name = default(string), Layouts? layout = default(Layouts?), double? cmc = default(double?), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), string power = default(string), string toughness = default(string), string loyalty = default(string), string lifeModifier = default(string), string handModifier = default(string), IList<Colors?> colors = default(IList<Colors?>), IList<Colors?> colorIndicator = default(IList<Colors?>), IList<Colors?> colorIdentity = default(IList<Colors?>), IList<RelatedCards> allParts = default(IList<RelatedCards>), IList<CardFace> cardFaces = default(IList<CardFace>), Legality legalities = default(Legality), bool? reserved = default(bool?), int? edhrecRank = default(int?), string set = default(string), string setName = default(string), string collectorNumber = default(string), string setSearchUri = default(string), string scryfallSetUri = default(string), ImageUri imageUris = default(ImageUri), bool? highresImage = default(bool?), bool? reprint = default(bool?), bool? digital = default(bool?), Rarity? rarity = default(Rarity?), string flavorText = default(string), string artist = default(string), System.Guid? illustrationId = default(System.Guid?), string frame = default(string), bool? fullArt = default(bool?), string watermark = default(string), BorderColors? borderColor = default(BorderColors?), int? storySpotlightNumber = default(int?), string storySpotlightUri = default(string), bool? timeshifted = default(bool?), bool? colorshifted = default(bool?), bool? futureshifted = default(bool?), IDictionary<string, string> purchaseUris = default(IDictionary<string, string>), IDictionary<string, string> relatedUris = default(IDictionary<string, string>))
+        public Card(System.Guid? id = default(System.Guid?), System.Guid? oracleId = default(System.Guid?), IList<int?> multiverseIds = default(IList<int?>), int? mtgoId = default(int?), int? arenaId = default(int?), int? mtgoFoilId = default(int?), string uri = default(string), string scryfallUri = default(string), string printsSearchUri = default(string), string rulingsUri = default(string), string name = default(string), Layouts? layout = default(Layouts?), double? cmc = default(double?), string typeLine = default(string), string oracleText = default(string), string manaCost = default(string), string power = default(string), string toughness = default(string), string loyalty = default(string), string lifeModifier = default(string), string handModifier = default(string), IList<Colors?> colors = default(IList<Colors?>), IList<Colors?> colorIndicator = default(IList<Colors?>), IList<Colors?> colorIdentity = default(IList<Colors?>), IList<RelatedCards> allParts = default(IList<RelatedCards>), IList<CardFace> cardFaces = default(IList<CardFace>), Legality legalities = default(Legality), bool? reserved = default(bool?), int? edhrecRank = default(int?), string set = default(string), string setName = default(string), string collectorNumber = default(string), string setSearchUri = default(string), string scryfallSetUri = default(string), ImageUri imageUris = default(ImageUri), bool? highresImage = default(bool?), bool? reprint = default(bool?), bool? digital = default(bool?), Rarity? rarity = default(Rarity?), string flavorText = default(string), string artist = default(string), System.Guid? illustrationId = default(System.Guid?), string frame = default(string), bool? fullArt = default(bool?), string watermark = default(string), BorderColors? borderColor = default(BorderColors?), int? storySpotlightNumber = default(int?), string storySpotlightUri = default(string), bool? timeshifted = default(bool?), bool? colorshifted = default(bool?), bool? futureshifted = default(bool?), IDictionary<string, string> purchaseUris = default(IDictionary<string, string>), IDictionary<string, string> relatedUris = default(IDictionary<string, string>), Prices prices = default(Prices))
         {
             Id = id;
             OracleId = oracleId;
@@ -86,6 +87,7 @@ namespace Scryfall.API.Models
             Colorshifted = colorshifted;
             Futureshifted = futureshifted;
             PurchaseUris = purchaseUris;
+            Prices = prices;
             RelatedUris = relatedUris;
             CustomInit();
         }
@@ -362,6 +364,9 @@ namespace Scryfall.API.Models
         /// </summary>
         [JsonProperty(PropertyName = "purchase_uris")]
         public IDictionary<string, string> PurchaseUris { get; set; }
+        
+        [JsonProperty(PropertyName = "prices")]
+        public Prices Prices { get; set; }
 
         /// <summary>
         /// </summary>
